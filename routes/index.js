@@ -20,4 +20,17 @@ router.route('/addImage')
 router.get('/manage', adminControllers.getManage)
 
 router.get('/site', adminControllers.getSite)
+
+router.get('/deleteImage/:id', adminControllers.deteleImage)
+
+router.get('/deleteText/:id', adminControllers.deteleText)
+
+router.route('/editImage/:id')
+    .get(adminControllers.getEditImgae)
+    .post(adminControllers.editImage)
+
+router.route('/editText/:id')
+    .get(adminControllers.getEditText)
+    .post(adminControllers.editText)
+
 module.exports = router;
