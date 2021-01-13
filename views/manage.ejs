@@ -10,7 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
-    <label> quản lý bài đăng</label>
+    <label><h1>quản lý bài đăng</h1></label>
     <div class="row mb-5">
         <form class="col-md-12" method="post">
             <div class="site-blocks-table">
@@ -24,21 +24,23 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <% for ( var i = 0; i < data1.length; i++) { %>
                         <tr>
-                            <td class="product-thumbnail">
-                                <img src="" alt="Image" class="img-fluid">
+                            <td>
+                                <img style="width: 150px;" src="<%= data1[i].image %>" alt="Image" class="img-fluid">
                             </td>
-                            <td>adsasdfasdf</td>
-                            <td><a href="" class="btn btn-primary btn-sm">X</a></td>
-                            <td><a href="" class="btn btn-primary btn-sm">Edit</a></td>
+                            <td><%= data1[i].text %></td>
+                            <td><a href="/deleteText/<%= data1[i]._id %>" class="btn btn-primary btn-sm">X</a></td>
+                            <td><a href="/editText/<%= data1[i]._id %>" class="btn btn-primary btn-sm">Edit</a></td>
                         </tr>
+                        <% } %>
                     </tbody>
                 </table>
             </div>
         </form>
     </div>
 
-    <label> quản lý ảnh</label>
+    <label><h1>quản lý ảnh</h1></label>
     <div class="row mb-5">
         <form class="col-md-12" method="post">
             <div class="site-blocks-table">
@@ -51,13 +53,15 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <% for (var i = 0; i < data2.length; i++) { %>
                         <tr>
                             <td class="product-thumbnail">
-                                <img src="" alt="Image" class="img-fluid">
+                                <img style="width: 150px;" src="<%= data2[i].image %>" alt="Image" class="img-fluid">
                             </td>
-                            <td><a href="" class="btn btn-primary btn-sm">X</a></td>
-                            <td><a href="" class="btn btn-primary btn-sm">Edit</a></td>
+                            <td><a href="/deleteImage/<%= data2[i]._id %>" class="btn btn-primary btn-sm">X</a></td>
+                            <td><a href="/editImage/<%= data2[i]._id %>" class="btn btn-primary btn-sm">Edit</a></td>
                         </tr>
+                        <% } %>
                     </tbody>
                 </table>
             </div>
